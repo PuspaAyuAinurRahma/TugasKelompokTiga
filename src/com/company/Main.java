@@ -24,7 +24,7 @@ public class Main {
     }
 
     private static int showMenu() {
-        System.out.println("Pendataan dan Perhitungan IPS (Indeks Prestasi Semester)\n" +
+        System.out.println("Menu hari ini\n" +
                 "1. Penjumlahan Bilangan Prima\n" +
                 "2. Jumlah Bilangan Prima\n" +
                 "3. Keluar");
@@ -66,26 +66,28 @@ public class Main {
                 System.out.println("Mohon maaf masukkan bilangan yang dimasukkan harus berupa angka");
             }
         }
+        if (bil1<0 || bil2<0){
+            System.out.print("\nBilangan Tidak Boleh Kurang dari 0\n");
+        } else {
+            System.out.println("---------------------------------------");
+            System.out.println("Bilangan Prima Antara "+bil1+" dan "+bil2);
 
-        System.out.println("---------------------------------------");
-        System.out.println("Bilangan Prima Antara "+bil1+" dan "+bil2);
-
-        for (int i = bil1;i <= bil2; i++){
-            var bilPrima = true;
-            for (int j = 2; j < i; j++) {
-                if(i%j==0){
-                    bilPrima = false;
-                    break;
+            for (int i = bil1;i <= bil2; i++){
+                var bilPrima = true;
+                for (int j = 2; j < i; j++) {
+                    if(i%j==0){
+                        bilPrima = false;
+                        break;
+                    }
+                }
+                if(bilPrima){
+                    System.out.print(i +"\t");
+                    Penjumlahan += i;
                 }
             }
-            if(bilPrima){
-                System.out.print(i +"\t");
-                Penjumlahan += i;
-            }
+
+            System.out.println("\nPenjumlahan Bilangan Prima "+Penjumlahan);
         }
-
-        System.out.println("\nPenjumlahan Bilangan Prima "+Penjumlahan);
-
     }
 
     private static void jumlah() {
@@ -110,27 +112,30 @@ public class Main {
                 System.out.println("Mohon maaf masukkan bilangan yang dimasukkan harus berupa angka");
             }
         }
+        if (bil1<0 || bil2<0){
+            System.out.print("\nBilangan Tidak Boleh Kurang dari 0\n");
+        } else {
+            System.out.println("---------------------------------------");
+            System.out.println("Bilangan Prima Antara "+bil1+" dan "+bil2);
 
-        System.out.println("---------------------------------------");
-        System.out.println("Bilangan Prima Antara "+bil1+" dan "+bil2);
-
-        ArrayList Prima = new ArrayList();
-        for (int i = bil1;i <= bil2; i++){
-            var bilPrima = true;
-            for (int j = 2; j < i; j++) {
-                if(i%j==0){
-                    bilPrima = false;
-                    break;
+            ArrayList Prima = new ArrayList();
+            for (int i = bil1;i <= bil2; i++){
+                var bilPrima = true;
+                for (int j = 2; j < i; j++) {
+                    if(i%j==0){
+                        bilPrima = false;
+                        break;
+                    }
+                }
+                if(bilPrima){
+                    System.out.print(i +"\t");
+                    Prima.add(i);
                 }
             }
-            if(bilPrima){
-                System.out.print(i +"\t");
-                Prima.add(i);
-            }
-        }
 
-        Jumlah = Prima.size();
-        System.out.println("\nJumlah Bilangan Prima "+Jumlah);
+            Jumlah = Prima.size();
+            System.out.println("\nJumlah Bilangan Prima "+Jumlah);
+        }
     }
 
 }
